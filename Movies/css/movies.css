@@ -1,0 +1,130 @@
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+    #map {
+    height: 100%;
+    position: absolute; 
+    top: 0; 
+    bottom: -200px; 
+    left: 0; 
+    right: 0;
+    z-index: -1;
+  }
+  
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header, section .jumbotron-heading {
+    z-index: 100;
+    opacity: 0.9;
+  }
+
+  h1.gradient-header {
+    font-size: 2rem;
+    max-width: 800px;
+    font-weight: normal;
+    font-family: 'Ubuntu';
+    background: linear-gradient(135deg, #00A3FF, #FB2C9A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3.gradient-header {
+    font-size: 1.5rem;
+    max-width: 800px;
+    font-weight: normal;
+    font-family: 'Ubuntu';
+    background: linear-gradient(135deg, #00A3FF, #FB2C9A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #cinema {
+    text-decoration: none;
+  }
+
+  #listings .shadow {
+    position:relative;
+    -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+       -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  }
+
+  .crop-text {
+    -webkit-line-clamp: 3;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .scrollbar-reskin::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 2px; }
+  
+  .scrollbar-reskin::-webkit-scrollbar {
+    width: .75em;  /* Total width including `border-width` of scrollbar thumb */    
+    background-color: transparent; }
+  
+  .scrollbar-reskin::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    border: 0.25em solid rgba(0, 0, 0, 0);  /* Transparent border together with `background-clip: padding-box` does the trick */
+    background-clip: padding-box;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    background-image: -webkit-linear-gradient(330deg, #00A3FF 0%, #FB2C9A 100%);
+    background-image: linear-gradient(120deg, #00A3FF 0%, #FB2C9A 100%); }
+
+  .scrollbar-reskin {
+    position: relative;
+    overflow-y: scroll;
+    max-height: 40%;
+    max-height: 40vh; }
+
+  #listings .card-body {
+    padding: 1.25rem 0rem;
+  }
+
+  #listings #current-listings-panel {
+    margin: 0 12px 0 -18px;
+  }
+
+  #listings img {
+    transform: scale(1);
+    transition: all 0.5s;
+  }
+
+  #listings img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7)!important;
+    cursor: pointer;
+  }
+
+  #listings img[src='https://png.icons8.com/ios/50/000000/starred-ticket.png']:hover {
+    transform: none;
+    transition: none;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    cursor: default;
+  }
+
+  #myModal .modal-dialog {
+      -webkit-transform: translate(0,-50%);
+      -o-transform: translate(0,-50%);
+      transform: translate(0,-50%);
+      top: 50%;
+      margin: 0 auto;
+  }
+
+  .modal-body {
+    position:relative;
+    padding:0px;
+  }
