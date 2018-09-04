@@ -1,0 +1,24 @@
+How long did it take to complete the solution?
+ - roughly 20 hours on and off.
+
+What would you add if you had more time?
+ - make widget draggable / collapsible
+ - directions with option travel params (WALKING/PUBLIC TRANSPORT/ DRIVING)
+ - better responsiveness
+ - upcoming movie releases
+ - list / card toggle
+
+How would you deploy this to production?
+ - In IIS, right click local computer => add website
+ - fill out the form, ensuring desired application pool, access and bindings populated
+ - Start Website
+ - Recycle Application Pool
+
+How would you debug it in production?
+ - I would use browser developer tools to inspect and debug code where possible.
+ - If it were a server application, I would hope there was a production like environment in place where I could debug.
+
+How would you know if it is failing at 2am?
+ - There are a multitide of monitoring solutions available, so if any of the servers go down or even a portion of the network, 
+   notifications can be configured to be sent to.
+
