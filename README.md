@@ -12,7 +12,7 @@ Following that, all current movies showing will be retrieved, along with a detai
 
 User can click on movie posters, and view current trailers.
 
-# Caveats
+## Caveats
 If the user decides to deny permission, they are prompted to reconsider. The 'Try Again' button will attempt reload the page from the server. 
 
 Due to different browsers handling of navigator permissions, the user's decision may be retained after reload. 
