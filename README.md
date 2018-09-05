@@ -19,5 +19,6 @@ Due to different browsers handling of navigator permissions, the user's decision
 
 Pressing 'CTRL' + 'F5' keys may resolve the issue, but in some cases the user may have to force the permission change either through the browser's settings or clicking on the location denied icon to left of the address bar, if present.
 
-
+## Apologies
+Unit tests are a bit of a disaster zone, not used to QUnit.
 
