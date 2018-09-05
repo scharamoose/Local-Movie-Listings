@@ -2,6 +2,7 @@ How long did it take to complete the solution?
  - roughly 23 hours on and off.
 
 What would you add if you had more time?
+ - Flesh out unit tests - they are somewhat lacking. [New to QUnit]
  - Make widget collapsible
  - Directions with option travel params (WALKING/PUBLIC TRANSPORT/ DRIVING)
  - Make background map interactive.
