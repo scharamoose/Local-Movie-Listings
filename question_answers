@@ -2,15 +2,15 @@ How long did it take to complete the solution?
  - roughly 20 hours on and off.
 
 What would you add if you had more time?
- - make widget draggable / collapsible
- - directions with option travel params (WALKING/PUBLIC TRANSPORT/ DRIVING)
- - better responsiveness
- - upcoming movie releases
- - list / card toggle
+ - Make widget collapsible
+ - Directions with option travel params (WALKING/PUBLIC TRANSPORT/ DRIVING)
+ - Better responsiveness
+ - Upcoming movie releases
+ - List / card toggle
 
 How would you deploy this to production?
  - In IIS, right click local computer => add website
- - fill out the form, ensuring desired application pool, access and bindings populated
+ - Fill out the form, ensuring desired application pool, access and bindings populated
  - Start Website
  - Recycle Application Pool
 
