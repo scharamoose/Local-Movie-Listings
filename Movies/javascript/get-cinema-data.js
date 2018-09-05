@@ -1,7 +1,7 @@
   function getCinemaDetails(position) {  
     let showtimes;
     
-    fetch("https://api.internationalshowtimes.com/v4/cinemas/?location=" + position.lat + ","+ position.lng +"&distance=12", {
+    fetch("https://api.internationalshowtimes.com/v4/cinemas/?location=" + position.lat + ","+ position.lng +"&distance=15", {
       method: 'get',
       headers: {
         "X-API-Key": "5K9XFO0CefW8zfsTnJ95kZ6nN1LtfsaJ"
@@ -50,6 +50,7 @@
                       <ul>\
                         {{#movies.length}}\
                           {{#movies}}\
+                          {{#title}}\
                           <div class="media mb-4">\
                             <a class="media-left waves-light mr-3 video-btn" {{#hasTrailer}} data-src="{{trailer}}" video-btn" data-toggle="modal" data-target="#myModal" {{/hasTrailer}} {{^hasTrailer}}{{/hasTrailer}}>\
                               <img class="img-thumbnail shadow-sm" src="{{poster_image_thumbnail}}" onerror="this.src=\'https://png.icons8.com/ios/50/000000/starred-ticket.png\'" height="64" width="64" alt="Generic placeholder image">\
@@ -86,6 +87,7 @@
                               </div>\
                             </div>\
                           </div>\
+                        {{/title}}\
                         {{/movies}}\
                       {{/movies.length}}\
                     </ul>\

@@ -1,6 +1,8 @@
   $(function () {
     $('#listings .card-header-tabs').tab();
 
+    $('#listings').draggable({ cursor: "move" });
+
     $(document).on("click", "#synopsis", function(){
       $(this).toggleClass("crop-text");
     });

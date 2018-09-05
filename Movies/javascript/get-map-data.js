@@ -96,9 +96,6 @@
   };
 
   function initMap() {
-    let directionsService = new google.maps.DirectionsService();
-    let directionsDisplay = new google.maps.DirectionsRenderer();
-
     map = new google.maps.Map(document.getElementById('map'), {
       // Default to Dublin
       center: {lat: 53.350140, lng: -6.266155}, 
@@ -107,17 +104,13 @@
       disableDefaultUI: true
     });
 
-    //directionsDisplay.setMap(map);
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
-    directionsDisplay.setPanel(document.getElementById('direction-details'));
-
     map.setOptions({styles: styles['silver']});
 
     // Attempt HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        let pos = {
-          lat: position.coords.latitude,
+        pos = {
+          lat: position.coords.latitude, 
           lng: position.coords.longitude
         };
 
@@ -132,9 +125,8 @@
                 position: pos,
                 map: map,
                 icon: icon
-            });  
-        
-        directionsDisplay.setMap(map);
+            });          
+
         marker.setMap(map);
 
         plotNearestCinema(map, pos);
@@ -142,9 +134,6 @@
         $(".nav-item a[href='#directions-panel']").removeClass('disabled');
 
         getCinemaDetails(pos);
-
-        $("#listings").removeAttr('hidden');
-        
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -154,11 +143,11 @@
     }
   }
 
-  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  function calculateAndDisplayRoute(directionsService, directionsDisplay, you, destination) {
     let selectedMode = "DRIVING";
     directionsService.route({
-      origin: {lat: 53.9432639, lng: -8.0756778},  // You
-      destination: {lat: 53.9428075, lng: -8.1044495},  // Nearest Cinema          
+      origin: {lat: you.lat, lng: you.lng},  // You
+      destination: {lat: destination.lat, lng: destination.lng},  // Nearest Cinema          
       travelMode: google.maps.TravelMode[selectedMode] // Transport Default: Driving
     }, function(response, status) {
       if (status == 'OK') {
@@ -170,23 +159,34 @@
   }
 
   function plotNearestCinema(map, pos){
-    let request = {
+      let destination = null, request = {
         location: pos,
         radius: '5000',
         types: ['movie_theater']
       };
 
       service = new google.maps.places.PlacesService(map);
-      service.nearbySearch(request, callback);
-  }
-  
-  function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        let place = results[i];
-        createMarker(results[i]);
-      }
-    }
+      service.nearbySearch(request, function (results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (let i = 0; i < results.length; i++) {
+            destination = {
+              lat: results[i].geometry.viewport.f.f,
+              lng: results[i].geometry.viewport.b.b
+            };
+
+            let directionsService = new google.maps.DirectionsService();
+            let directionsDisplay = new google.maps.DirectionsRenderer();
+
+            directionsDisplay.setMap(map);
+            calculateAndDisplayRoute(directionsService, directionsDisplay, pos, destination);
+            directionsDisplay.setPanel(document.getElementById('direction-details'));
+
+            createMarker(results[i]);
+          }
+        }
+      });
+      
+      $("#listings").removeAttr('hidden');
   }
 
   function createMarker(place) {
@@ -198,7 +198,7 @@
       zIndex:120
     });
 
-    marker.metadata = {IstTheaterId: 52870};
+    // marker.metadata = {IstTheaterId: 52870};
 
     $("#cinema").text(place.name);
   }
