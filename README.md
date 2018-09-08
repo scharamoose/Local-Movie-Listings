@@ -22,5 +22,5 @@ Pressing 'CTRL' + 'F5' keys may resolve the issue, but in some cases the user ma
 ## Apologies
 Unit tests are a bit of a disaster zone, not used to QUnit.
 
-The limit geolocation unit tests can be executed within the browser by simply opening 'Movies/unit-tests/tests.html'.
+The limited geolocation unit tests can be executed within the browser by simply opening 'Movies/unit-tests/tests.html'.
 
