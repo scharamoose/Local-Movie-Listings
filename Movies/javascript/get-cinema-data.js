@@ -128,12 +128,12 @@
                 currentMovie.showtimes.forEach(showtime => { 
                   showtime.start_at = moment(showtime.start_at)
                     .calendar(null, {
-                      sameDay: '[Today] - hh:mm',
-                      nextDay: '[Tomorrow] - hh:mm',
-                      nextWeek: 'ddd Do - hh:mm',
-                      lastDay: '[Yesterday] - hh:mm',
-                      lastWeek: '[Last] ddd - hh:mm',
-                      sameElse: 'ddd Do - hh:mm'
+                      sameDay: '[Today] - HH:mm',
+                      nextDay: '[Tomorrow] - HH:mm',
+                      nextWeek: 'ddd Do - HH:mm',
+                      lastDay: '[Yesterday] - HH:mm',
+                      lastWeek: '[Last] ddd - HH:mm',
+                      sameElse: 'ddd Do - HH:mm'
                   });        
                 });
               })
